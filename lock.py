@@ -2,14 +2,16 @@ import os
 
 
 def clearTerminal():
-    os.system('clear')  # only in terminal 
+    for x in range(10):
+        print('\x1b[2J')  # if is not terminal
+    os.system('clear')  # only in terminal
 
 
 passwd = input("Set password ")
 
 clearTerminal()
 
-isCorrect = False;
+isCorrect = False
 
 while not isCorrect:
     tempPasswd = input("Enter password ")
