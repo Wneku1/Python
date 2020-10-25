@@ -1,0 +1,25 @@
+import os
+from PIL import Image
+
+
+def generatesomejpg():
+    for t in range(4):
+        newIm = Image.new("RGB", (10, 10), (0, 0, 255))
+        newIm.save("test{}.jpg".format(t))
+
+
+def convert(path):
+    for root, dirs, files in os.walk(path):
+        for file in files:
+            if file.endswith(".jpg"):
+                print(os.path.join(root, file))
+                tmp = Image.open(file)
+                tmp.save('{}.png'.format(file.replace('.jpg', '')), "PNG")
+
+
+generateJpg = input("Do you want generate some jpg files? (y/n) ")
+if generateJpg == 'y':
+    generatesomejpg()
+    
+path = input("Set start Path: ")
+convert(path)

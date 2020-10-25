@@ -11,4 +11,5 @@ def list_files(startpath):
             print('{}{}'.format(subindent, f))
 
 
-list_files('C:/Users/Sebastian/Desktop/Python')
+path = input("Set start Path: ")
+list_files(path)
