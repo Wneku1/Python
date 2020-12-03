@@ -46,14 +46,12 @@ class Matrix:
         return Matrix(data)
 
 
-def testAdding():
-    m1 = Matrix([[1, 2, 3],
-                 [4, 5, 6]])
-
-    m2 = Matrix([[7, 8, 9],
-                 [10, 11, 12]])
+def testAdding(printResult):
+    m1 = Matrix([[rn.randint(1, 100) for i in range(128)] for i in range(128)])
+    m2 = Matrix([[rn.randint(1, 100) for i in range(128)] for i in range(128)])
     m3 = m1 + m2
-    m3.draw()
+    if printResult:
+        m3.draw()
 
 
-testAdding()
+testAdding(False)
