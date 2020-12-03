@@ -6,15 +6,18 @@ class Matrix:
     def __init__(self, data) -> object:
         self.data = data
 
-    def draw(self):
+    def __str__(self):
         lengthRows = len(self.data)
         lengthColumns = len(self.data[0])
+        toPrint = ''
         for lr in range(lengthRows):
-            print('|', end=' ')
+            toPrint += '| '
             for lc in range(lengthColumns):
-                print(''.join('{0}'.format(self.data[lr][lc])), end=' ')
-            print('|')
-        print('\n')
+                toPrint += ''.join('{0}'.format(self.data[lr][lc]))
+                toPrint += ' '
+            toPrint += '|'
+            toPrint += '\n'
+        return toPrint
 
     def size(self):
         return len(self.data), len(self.data[0])
@@ -82,7 +85,7 @@ class Matrix:
         count = 0
         for j in range(lRows):
             m = self[j][0]
-            o = self[j][lRows-1]
+            o = self[j][lRows - 1]
             for k in range(1, lCol):
                 count += 1
                 rowInRange = ((j + count) % lRows)
@@ -101,9 +104,9 @@ def testAdding(printResult):
     m2 = Matrix([[rn.randint(1, 100) for i in range(128)] for i in range(128)])
     m3 = m1 + m2
     if printResult:
-        m1.draw()
-        m2.draw()
-        m3.draw()
+        print(m1)
+        print(m2)
+        print(m3)
 
 
 def testMultiple(printResult):
@@ -111,13 +114,12 @@ def testMultiple(printResult):
     m2 = Matrix([[rn.randint(1, 100) for i in range(8)] for i in range(8)])
     m3 = m1 * m2
     if printResult:
-        m1.draw()
-        m2.draw()
-        m3.draw()
+        print(m1)
+        print(m2)
+        print(m3)
 
 
 def testCalcDetermitant(printResult):
-
     size = rn.randrange(1, 9, 2)
     m1 = Matrix([[rn.randint(1, 10) for i in range(size)] for i in range(size)])
     if printResult:
