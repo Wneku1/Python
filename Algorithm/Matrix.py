@@ -70,6 +70,31 @@ class Matrix:
 
         return Matrix(data)
 
+    def calcDeterminant(self):
+        lRows = len(self.data)
+        lCol = len(self.data[0])
+
+        if lRows != lCol:
+            raise Exception("Wrong matrix size")
+
+        sumAll = 0
+        oddAll = 0
+        count = 0
+        for j in range(lRows):
+            m = self[j][0]
+            o = self[j][lRows-1]
+            for k in range(1, lCol):
+                count += 1
+                rowInRange = ((j + count) % lRows)
+                toOdd = lCol - k - 1
+                m = m * self[rowInRange][k]
+                o = o * self[rowInRange][toOdd]
+            count = 0
+            sumAll += m
+            oddAll += o
+
+        return sumAll - oddAll
+
 
 def testAdding(printResult):
     m1 = Matrix([[rn.randint(1, 100) for i in range(128)] for i in range(128)])
@@ -91,5 +116,14 @@ def testMultiple(printResult):
         m3.draw()
 
 
+def testCalcDetermitant(printResult):
+
+    size = rn.randrange(1, 9, 2)
+    m1 = Matrix([[rn.randint(1, 10) for i in range(size)] for i in range(size)])
+    if printResult:
+        print(m1.calcDeterminant())
+
+
 testAdding(False)
 testMultiple(False)
+testCalcDetermitant(True)
