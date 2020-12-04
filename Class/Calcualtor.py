@@ -11,19 +11,18 @@ def parsing(text):
     complexNumber = []
     allEq = []
     isBracket = False
+    complex = []
 
     for i in range(len(split_expr)):
         if split_expr[i] == '(':
             isBracket = True
-            complex = []
-            w = i
-            while split_expr[w] != ')':
-                complex.append(split_expr[w])
-                w += 1
-            complexNumber.append(complex)
-
-        elif split_expr[i] == ')':
-            isBracket = False
+            complex.append(split_expr[i])
+        elif isBracket is True:
+            complex.append(split_expr[i])
+            if split_expr[i] == ')':
+                complexNumber.append(complex)
+                complex = []
+                isBracket = False
         elif isBracket is False:
             allEq.append(split_expr[i])
 
@@ -37,18 +36,20 @@ def parsing(text):
             elif cn[i] == '-':
                 temporaryComplex.im = -float(cn[i + 1])
         allEq.append(temporaryComplex)
-
     return allEq
 
-
+print("\nSample input: (2 + 1i) + ( 3 + 4i) \n")
 expr = input("Really Simple Calculator: \n")
+
 parsed = parsing(expr)
 
-if parsed[0] == '+':
-    print(parsed[1] + parsed[2])
-elif parsed[0] == '-':
-    print(parsed[1] - parsed[2])
-elif parsed[0] == '*':
-    print(parsed[1] * parsed[2])
-elif parsed[0] == '/':
-    print(parsed[1] / parsed[2])
+for i in range(len(parsed)):
+    if '+' == parsed[i]:
+        print(parsed[i+1] + parsed[i+2])
+    elif '-' == parsed[i]:
+        print(parsed[i+1] - parsed[i+2])
+    elif '*' == parsed[i]:
+        print(parsed[i+1] * parsed[i+2])
+    elif '/' == parsed[i]:
+        print(parsed[i+1] / parsed[i+2])
+
