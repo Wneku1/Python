@@ -104,5 +104,5 @@ def test():
     testEditor = CsvEditor("cars.csv")
     testEditor.navigation()
 
-
-test("cars.csv")
+if __name__ == "__main__":
+    test("cars.csv")

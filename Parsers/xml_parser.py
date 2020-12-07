@@ -36,6 +36,7 @@ class MyHandler(xml.sax.ContentHandler):
         elif tag == "description":
             print("Description:", self.description)
             self.description = ''
+
         self.currentTag = ''
 
     def characters(self, content):

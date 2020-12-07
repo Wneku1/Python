@@ -1,18 +1,24 @@
 import cmath
 from typing import List
 
-abc: List[float] = list(input("Enter the a, b, c of the equation ax^2 + bx + c: ").split())
 
-while len(abc) < 3:
-    abc.append(float(0))
+def squareEquation():
+    abc: List[float] = list(input("Enter the a, b, c of the equation ax^2 + bx + c: \n").split())
 
-a: [float] = float(abc[0])
-b: [float] = float(abc[1])
-c: [float] = float(abc[2])
+    while len(abc) < 3:
+        abc.append(float(0))
 
-delta: [float] = b*b - 4*a*c
+    a: [float] = float(abc[0])
+    b: [float] = float(abc[1])
+    c: [float] = float(abc[2])
 
-x1 = (-b - cmath.sqrt(delta))/2*a
-x2 = (-b + cmath.sqrt(delta))/2*a
+    delta: [float] = b*b - 4*a*c
 
-print('The solution are {0} and {1}'.format(x1, x2))
+    x1 = (-b - cmath.sqrt(delta))/2*a
+    x2 = (-b + cmath.sqrt(delta))/2*a
+
+    print('The solution are {0} and {1}'.format(x1, x2))
+
+
+if __name__ == "__main__":
+    squareEquation()

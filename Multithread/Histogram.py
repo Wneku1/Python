@@ -10,11 +10,10 @@ def doSomeCalculation(size):
     return m1.calcDeterminant() % 100000
 
 
-if __name__ == "__main__":
+def testMultiThreading():
     p = Pool(processes=4)
 
     sizes = [2, 4, 6, 8, 10, 12, 14]
-    finList = []
 
     result = p.map(doSomeCalculation, sizes)
     p.close()
@@ -24,3 +23,8 @@ if __name__ == "__main__":
     plt.show()
 
     print('Result: \n {0}'.format(result))
+
+
+if __name__ == "__main__":
+    testMultiThreading()
+

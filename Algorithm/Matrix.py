@@ -126,6 +126,7 @@ def testCalcDetermitant(printResult):
         print(m1.calcDeterminant())
 
 
-testAdding(False)
-testMultiple(False)
-testCalcDetermitant(True)
+if __name__ == "__main__":
+    testAdding(False)
+    testMultiple(False)
+    testCalcDetermitant(True)

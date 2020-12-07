@@ -54,4 +54,5 @@ def testDiner():
         p.start()
 
 
-testDiner()
+if __name__ == "__main__":
+    testDiner()

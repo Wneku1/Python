@@ -20,6 +20,6 @@ def convert(path):
 generateJpg = input("Do you want generate some jpg files? (y/n) ")
 if generateJpg == 'y':
     generatesomejpg()
-    
+
 path = input("Set start Path: ")
 convert(path)

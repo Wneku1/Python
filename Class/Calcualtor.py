@@ -38,18 +38,23 @@ def parsing(text):
         allEq.append(temporaryComplex)
     return allEq
 
-print("\nSample input: (2 + 1i) + ( 3 + 4i) \n")
-expr = input("Really Simple Calculator: \n")
 
-parsed = parsing(expr)
+def navigation():
+    print("\nSample input: (2 + 1i) + ( 3 + 4i) \n")
+    expr = input("Really Simple Calculator: \n")
 
-for i in range(len(parsed)):
-    if '+' == parsed[i]:
-        print(parsed[i+1] + parsed[i+2])
-    elif '-' == parsed[i]:
-        print(parsed[i+1] - parsed[i+2])
-    elif '*' == parsed[i]:
-        print(parsed[i+1] * parsed[i+2])
-    elif '/' == parsed[i]:
-        print(parsed[i+1] / parsed[i+2])
+    parsed = parsing(expr)
 
+    for i in range(len(parsed)):
+        if '+' == parsed[i]:
+            print(parsed[i + 1] + parsed[i + 2])
+        elif '-' == parsed[i]:
+            print(parsed[i + 1] - parsed[i + 2])
+        elif '*' == parsed[i]:
+            print(parsed[i + 1] * parsed[i + 2])
+        elif '/' == parsed[i]:
+            print(parsed[i + 1] / parsed[i + 2])
+
+
+if __name__ == "__main__":
+    navigation()

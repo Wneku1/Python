@@ -7,16 +7,18 @@ def clearTerminal():
     os.system('clear')  # only in terminal
 
 
-passwd = input("Set password ")
+def lock():
+    passwd = input("Set password: \n")
+    clearTerminal()
+    isCorrect = False
+    while not isCorrect:
+        tempPasswd = input("Enter password ")
+        isCorrect = tempPasswd == passwd
+        if not isCorrect:
+            print("Try again.")
+        else:
+            print("Correct")
 
-clearTerminal()
 
-isCorrect = False
-
-while not isCorrect:
-    tempPasswd = input("Enter password ")
-    isCorrect = tempPasswd == passwd
-    if not isCorrect:
-        print("Try again.")
-    else:
-        print("Correct")
+if __name__ == "__main__":
+    lock()

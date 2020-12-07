@@ -14,7 +14,7 @@ def scalar_multiple(v1, v2):
     return result
 
 
-a = [1, 2, 12, 4]
-b = [2, 4, 2, 8]
-
-print(scalar_multiple(a, b))
+if __name__ == "__main__":
+    a = [1, 2, 12, 4]
+    b = [2, 4, 2, 8]
+    print(scalar_multiple(a, b))

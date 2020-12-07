@@ -11,5 +11,6 @@ def list_files(startpath):
             print('{}{}'.format(subindent, f))
 
 
-path = input("Set start Path: ")
-list_files(path)
+if __name__ == "__main__":
+    path = input("Set start Path: ")
+    list_files(path)
